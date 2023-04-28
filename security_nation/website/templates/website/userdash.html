@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+        .banner-image{
+            background-image: url("{%static 'website/1.jpeg' %}");
+            background-size: cover;
+            opacity:0.8;
+        }
+        
+        .text-center {
+            text-align: center!important;
+            margin-top: 22rem;
+        }
+        .margint{
+            margin:0 1rem;
+        }
+        .marginb{
+            margin:0.7rem;
+        }
+        .sizet{
+            font-size: 2.5rem;
+            font-family: 'Satisfy', cursive;
+            font-weight:bold;
+            color:#ffc107;
+        }
+        .nav-link {
+            white-space: nowrap;
+            margin-top: 6px;
+        }
+        .fonts{
+            font-weight:bold;
+            font-size:2.5rem;
+            font-family: 'Bruno Ace', cursive;
+        }
+        .fonts-popular-searches{
+            font-family: 'Bruno Ace', cursive;
+            font-weight: bold;
+        }
+        .view_item {
+        background: #fff;
+        border: 1px solid #e2efe1;
+        margin: 10px;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        }
+        .view_item .vi_left{
+        margin-right: 25px;
+        }
+        .view_item .vi_cost{
+            margin-left: 100px;
+        }
+        
+        .view_item .title{
+	    font-weight: 600;
+        }
+
+        .view_item .content{
+        margin: 5px 0;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 200;
+        }
+        .view_item .btn2{
+        width: 125px;
+        background: #dc3545;
+        padding: 8px 5px;
+        border-radius: 3px;
+        color: #fff;
+        text-align: center;
+        font-weight: 200;
+        }
+
+        .view_item img{
+        width: 75px;
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+       
+
+       .height{
+        height: 50vh;
+       }
+       
+
+       .search{
+       position: relative;
+       box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+         
+       }
+
+       .search input{
+
+        height: 60px;
+        text-indent: 25px;
+        border: 2px solid #d6d4d4;
+
+
+       }
+
+
+       .search input:focus{
+
+        box-shadow: none;
+        border: 2px solid #dc3545;
+
+
+       }
+
+       .search .fa-search{
+
+        position: absolute;
+        top: 20px;
+        left: 16px;
+
+       }
+
+       .search button{
+
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        height: 50px;
+        width: 110px;
+        background:#dc3545 ;
+
+       }
+        #padd{
+            padding:0 20rem;
+        }
+        .redd{
+            color: #dc3545;
+        }
+        .margg{
+            margin:2rem 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+        <div class="container">
+            <a href="#" class="navbar-brand sizet">Security Nation</a>
+        </div>
+        <button
+            type="button"
+            class="navbar-toggler"
+            data-bs-target="#navbarNav"
+            data-bs-toggle="collapse"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle Navbar"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="mx-auto"></div>
+            <ul class="navbar-nav">
+                <li class="nav-item margint">
+                    <a href="userdash.html" class="nav-link text-white">Home</a>
+                </li>
+
+                <li class="nav-item margint">
+                    <a href="filterform.html" class="nav-link text-white">Filter search</a>
+                </li>
+                <li class="nav-item margint">
+                    <a href="pastOrderUser.html" class="nav-link text-white">Previous orders</a>
+                </li>
+                <li class="nav-item margint">
+                    <a href="aboutus.html" class="nav-link text-white">About Us</a>
+                </li>
+                <li class="nav-item marginb">
+                    <button type="button" class="btn btn-warning">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-item-center">
+        <div class="content text-center">
+            <h1 class="text-warning fonts">SECURITY NATION</h1>
+            <p class="text-light" id="padd">Book Professional Security and Bodyguards for any occasion from the right partner through us...For more details and updates Sign Up on Security Nation for Free now...</p>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row my-5  d-flex justify-content-center align-items-center">
+
+          <div class="col-md-8 margg">
+
+            <div class="search">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control" placeholder="Search on basis of company name or type of gaurds">
+              <button class="btn btn-danger">Search</button>
+            </div>
+            
+          </div>
+          
+        </div>
+    </div>
+    <div class="container margg d-flex flex-direction-column justify-content-center">
+        <h5 class="redd fonts-popular-searches">Popular Choices among customers</h5>
+    </div>
+    <hr class="redd">
+    <div class="container my-5 d-grid gap-5">
+        <div class="view_item">
+            <div class="vi_left">
+                <img src="imgtest.png" alt="tomato">
+            </div>
+            <div class="vi_right">
+                <p class="title">Tomato</p>
+                <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                <button type="button" class="btn btn-danger">Book Now</button>
+            </div>
+            <div class="vi_cost">
+                <p class="title">Avg Cost</p>
+                <p class="btn2">3000</p>
+            </div>
+        </div>
+        <div class="view_item">
+            <div class="vi_left">
+                <img src="imgtest.png" alt="tomato">
+            </div>
+            <div class="vi_right">
+                <p class="title">Tomato</p>
+                <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                <button type="button" class="btn btn-danger">Book Now</button>
+            </div>
+            <div class="vi_cost">
+                <p class="title">Avg Cost</p>
+                <p class="btn2">3000</p>
+            </div>
+        </div>
+        <div class="view_item">
+            <div class="vi_left">
+                <img src="imgtest.png" alt="tomato">
+            </div>
+            <div class="vi_right">
+                <p class="title">Tomato</p>
+                <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                <button type="button" class="btn btn-danger">Book Now</button>
+            </div>
+            <div class="vi_cost">
+                <p class="title">Avg Cost</p>
+                <p class="btn2">3000</p>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script>
+    var nav=document.querySelector('nav');
+    window.addEventListener('scroll',function () {
+        if(window.pageYOffset>100){
+            nav.classList.add('bg-dark','shadow');
+        }else{
+            nav.classList.remove("bg-dark","shadow");
+        }
+    });
+</script>
+</body>
+</html>
