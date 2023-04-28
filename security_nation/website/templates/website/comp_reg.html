@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" 
+    rel="stylesheet">   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        .banner-image{
+            background-image: url('1.jpeg');
+            background-size: cover;
+            opacity:0.8;
+        }
+        .text-center {
+            text-align: center!important;
+            margin-top: 22rem;
+        }
+        .margint{
+            margin:0 1rem;
+        }
+        .marginb{
+            margin:0.7rem;
+        }
+        .sizet{
+            font-size: 2.5rem;
+            font-family: 'Satisfy', cursive;
+            font-weight:bold;
+            color:#ffc107;
+        }
+        .nav-link {
+            white-space: nowrap;
+            margin-top: 6px;
+        }
+        .fonts{
+            font-weight:bold;
+            font-size:2.5rem;
+            font-family: 'Bruno Ace', cursive;
+        }
+        #padd{
+            padding:0 20rem;
+        }
+        .redd{
+            color: #dc3545;
+        }
+        .fonts-popular-searches{
+            font-family: 'Bruno Ace', cursive;
+            font-weight: bold;
+        }
+        .margg{
+            margin-top:10rem;
+            padding:1rem 0
+        }
+        .margin-form{
+            margin:0 2rem;
+        }
+        .margg2{
+            margin-top: 2rem;
+        }
+        .lin{
+            display: inline;
+        }
+        .margg3{
+            margin-top:3rem;
+        }
+        .margg4{
+            margin-top: 4rem;
+        }
+        .text-gray{
+            color:gray;
+        }
+        .marggs{
+            margin:0 15rem;
+        }
+        .marggsi{
+            margin:0 5rem;   
+        }
+        .margg3si{
+            margin:3rem 5rem;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3 bg-dark shadow">
+        <div class="container">
+            <a href="#" class="navbar-brand sizet">Security Nation</a>
+        </div>
+        <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="mx-auto"></div>
+            <ul class="navbar-nav">
+
+                <li class="nav-item margint">
+                    <a href="userdash.html" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item margint">
+                    <a href="companyRegistrationForm.html" class="nav-link text-white">Partner with us</a>
+                </li>
+                <li class="nav-item margint">
+                    <a href="pastOrderUser.html" class="nav-link text-white">Previous orders</a>
+                </li>
+                <li class="nav-item margint">
+                    <a href="aboutus.html" class="nav-link text-white">About Us</a>
+                </li>
+                
+                <li class="nav-item marginb">
+                    <button type="button" class="btn btn-warning">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container margg d-flex flex-direction-column justify-content-center">
+        <h5 class="redd fonts-popular-searches">Enter Company Details to Partner With us</h5>
+    </div>
+    <hr class="redd">
+    <form class="row g-3 needs-validation d-flex flex-direction-column justify-content-center align-items-center marggs" novalidate>
+        <div class="">
+          <label for="validationCustom01" class="form-label">Company full name</label>
+          <input type="text" class="form-control" id="validationCustom01" value="" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">City</label>
+          <input type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom03" class="form-label">State</label>
+          <input type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="validationCustom05" required>
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+        <div class="input-group d-flex flex-direction-column justify-content-center align-item-center margg2">
+            <span class="input-group-text">Description</span>
+            <textarea id="address" class="form-control" aria-label="With textarea"></textarea>
+          </div>
+          <!-- <div class="margg2">
+            <label for="inputState" class="form-label">Type of Guards your company offers</label>
+            <select id="inputState" class="form-select">
+              <option selected>Choose...</option>
+              <option value="#">Male Guard</option>
+              <option value="#">Lady Guard</option>
+              <option value="#">Gunmen</option>
+              <option value="#">Bouncer</option>
+            </select>
+        <div class="cost margg3si"> -->
+            <h5>Average Cost per Guard</h5>
+            <div class="margg2">
+              <label for="validationCustom01" class="form-label">Enter Amount Per Month</label>
+              <input type="number" class="form-control" id="validationCustom01" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <!-- <div class="margg2">
+                <label for="validationCustom01" class="form-label">Male Guard</label>
+                <input type="number" class="form-control" id="validationCustom01" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="">
+                <label for="validationCustom01" class="form-label">Lady Guard</label>
+                <input type="number" class="form-control" id="validationCustom01" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="">
+                <label for="validationCustom01" class="form-label">Gunmen</label>
+                <input type="number" class="form-control" id="validationCustom01" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="">
+                <label for="validationCustom01" class="form-label">Bouncer</label>
+                <input type="number" class="form-control" id="validationCustom01" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div> -->
+        </div>
+        </div>
+        </div>
+        
+        <div class="col-12 margg4">
+            <p class="text-gray">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatum ullam quia in, ipsum voluptatibus temporibus exercitationem dolores est quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ab minus expedita veniam qui laborum nobis dolorum error atque corrupti.</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-danger" type="submit">Submit form</button>
+        </div>
+      </form>
+</body>
+</html>
