@@ -52,12 +52,13 @@ rel="stylesheet">
             font-weight: bold;
         }
         .view_item {
-        background: #fff;
-        border: 1px solid #e2efe1;
+        background: #e1e1e1;
+        border: 2px solid #a4a4a4;
         margin: 10px;
         padding: 10px 20px;
         display: flex;
         align-items: center;
+        border-radius: 10px;
         }
         .view_item .vi_left{
         margin-right: 25px;
@@ -68,13 +69,22 @@ rel="stylesheet">
         
         .view_item .title{
 	    font-weight: 600;
+        
         }
-
+         .view_item .title2{
+	    font-weight: 700;
+        font-size: 2rem;
+        /* border: 2px solid #a4a4a4; */
+        width: 250%;
+        
+        }
         .view_item .content{
-        margin: 5px 0;
+        margin: 10px 0;
         font-size: 14px;
-        line-height: 22px;
-        font-weight: 200;
+        line-height: 26px;
+        font-weight: 500;
+        width: 200%;
+        /* border: 2px solid #a4a4a4; */
         }
         .view_item .btn2{
         width: 125px;
@@ -156,7 +166,7 @@ rel="stylesheet">
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
         <div class="container">
-            <a href="#" class="navbar-brand sizet">Security Nation</a>
+            <a href="/website/userdash" class="navbar-brand sizet">Security Nation</a>
         </div>
         <button
             type="button"
@@ -175,16 +185,13 @@ rel="stylesheet">
                 <li class="nav-item margint">
                     <a href="#" class="nav-link text-white">Home</a>
                 </li>
+                <li class="nav-item margint">
+                    <a href="{% url 'userpastorders' 0 %}" class="nav-link text-white">Previous Orders</a>
+                </li>
 
-                <li class="nav-item margint">
+                <!-- <li class="nav-item margint">
                     <a href="filterform.html" class="nav-link text-white">Filter search</a>
-                </li>
-                <li class="nav-item margint">
-                    <a href="pastOrderUser.html" class="nav-link text-white">Previous orders</a>
-                </li>
-                <li class="nav-item margint">
-                    <a href="aboutus.html" class="nav-link text-white">About Us</a>
-                </li>
+                </li> -->
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <li class="nav-item marginb">
@@ -194,77 +201,78 @@ rel="stylesheet">
             </ul>
         </div>
     </nav>
-    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-item-center">
+    <div class="banner-image w-100 vh-80 d-flex justify-content-center align-item-center">
         <div class="content text-center">
             <h1 class="text-warning fonts">SECURITY NATION</h1>
             <p class="text-light" id="padd">Book Professional Security and Bodyguards for any occasion from the right partner through us...For more details and updates Sign Up on Security Nation for Free now...</p>
         </div>
     </div>
-    <div class="container">
-
-        <div class="row my-5  d-flex justify-content-center align-items-center">
-
-          <div class="col-md-8 margg">
-
-            <div class="search">
-              <i class="fa fa-search"></i>
-              <input type="text" class="form-control" placeholder="Search on basis of company name or type of gaurds">
-              <button class="btn btn-danger">Search</button>
-            </div>
-            
-          </div>
-          
-        </div>
+    <div class="container margg d-flex flex-direction-column justify-content-center p">
+        <h3 class="white fonts-popular-searches">Welcome, {{ user.username }} !</h3>
     </div>
+    <!-- Search BAr -->
+    <div class="container">
+        <div class="row my-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-8 margg">
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" id="search-input" placeholder="Search on basis of company name">
+                    <button class="btn btn-danger" id="search-btn">Search</button>
+                </div>
+            </div>
+        </div>
     <div class="container margg d-flex flex-direction-column justify-content-center">
         <h5 class="redd fonts-popular-searches">Popular Choices among customers</h5>
     </div>
+    
     <hr class="redd">
-    <div class="container my-5 d-grid gap-5">
-        <div class="view_item">
-            <div class="vi_left">
-                <img src="" alt="tomato">
+    <div class="container my-7 d-grid gap-5 ">
+        <!-- Reference Shit -->
+        <div id="search-results">
+            {% for company in companies %}
+            <div class="view_item" style="display: flex; justify-content: space-between; padding-left: 5%; padding-right: 5%;">
+                <div class="vi_right">
+                    <p class="title2">{{ company.cname }}</p>
+                    <p class="content"><strong>About Us:</strong> {{ company.cdis }}</p>
+                    <p class="content"><strong>Location:</strong> {{ company.ccity }}</p>
+                    <p class="content"><strong>Contact Us:</strong> {{ company.cemail }}</p>
+                    <a href="{% url 'booking' company.id %}">
+                        <button type="button" class="btn btn-danger">Book Now</button>
+
+                    </a>
+                </div>
+                <div class="vi_cost" style="padding-left: 50%;padding-top: 12%;">
+                    <p class="title">Avg Cost</p>
+                    <p class="btn2">{{ company.ccost }}</p>
+                </div>
             </div>
-            <div class="vi_right">
-                <p class="title">Tomato</p>
-                <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
-                <button type="button" class="btn btn-danger">Book Now</button>
-            </div>
-            <div class="vi_cost">
-                <p class="title">Avg Cost</p>
-                <p class="btn2">3000</p>
-            </div>
+            {% endfor %}
+        
         </div>
-        <div class="view_item">
-            <div class="vi_left">
-                <img src="" alt="tomato">
-            </div>
-            <div class="vi_right">
-                <p class="title">Tomato</p>
-                <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
-                <button type="button" class="btn btn-danger">Book Now</button>
-            </div>
-            <div class="vi_cost">
-                <p class="title">Avg Cost</p>
-                <p class="btn2">3000</p>
-            </div>
         </div>
-        <div class="view_item">
-            <div class="vi_left">
-                <img src="" alt="tomato">
-            </div>
-            <div class="vi_right">
-                <p class="title">Tomato</p>
-                <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
-                <button type="button" class="btn btn-danger">Book Now</button>
-            </div>
-            <div class="vi_cost">
-                <p class="title">Avg Cost</p>
-                <p class="btn2">3000</p>
-            </div>
-        </div>
+
     </div>
+    <h1>
+        
+    </h1>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#search-btn").click(function () {
+            var query = $("#search-input").val().toLowerCase();
+            $(".view_item").each(function () {
+                var companyName = $(this).find(".title2").text().toLowerCase();
+                if (companyName.includes(query)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+
 <script>
     var nav=document.querySelector('nav');
     window.addEventListener('scroll',function () {
@@ -274,6 +282,9 @@ rel="stylesheet">
             nav.classList.remove("bg-dark","shadow");
         }
     });
+    // Search BAr
+    
+
 </script>
 </body>
 </html>

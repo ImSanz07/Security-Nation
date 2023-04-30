@@ -1,0 +1,13 @@
+<!-- Display the booking details -->
+<h1>Payment Details</h1>
+<p>Booking ID: {{ booking.request_id }}</p>
+<p>Company: {{ booking.company.cname }}</p>
+<p>Contact Email: {{ booking.user.email }}</p>
+
+<!-- Display the payment form -->
+<form action="{% url 'payment' booking_id=booking_request.request_id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="booking_id" value="{{ booking.request_id }}">
+    <!-- Include your payment form here (e.g. a Stripe payment form) -->
+    <button type="submit" class="btn btn-primary">Process Payment</button>
+</form>
