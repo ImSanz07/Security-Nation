@@ -17,6 +17,11 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 def home(request):
     return render(request, "website/home.html")
+def aboutus(request):
+    return render(request,"website/aboutus.html")
+def req_accept(request):
+    return render(request,"website/req_accept.html")
+
 
 def signin(request):
     if request.method=='POST':
@@ -134,13 +139,22 @@ def booking(request,company_id):
     current_booking_request = BookingRequest.objects.get(company=company_id)
     current_booking_request.request_list.add(user_request)
     return render(request,"website/book_done.html")
-
+@csrf_exempt
 def accepting_request(request,request_id):
     request_object=Requests.objects.get(request_id=request_id)
     request_object.is_accepted=True
     request_object.save()
-    return render(request,'website/book_done.html')
+    return render(request,'website/req_accept.html')
 
+def rejecting_request(request,request_id):
+    request_object=Requests.objects.get(request_id=request_id)
+    request_object.delete()
+    return render(request,'website/comp_dash.html')
+@csrf_exempt
+def book_done(request):
+     if request.method=='POST':
+        print("lala")
+        return render(request,'website/book_done.html')
 
 # authorize razorpay client with API Keys.
 razorpay_client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
@@ -150,7 +164,7 @@ def userpastorders(request,cost):
     current_user=userm.objects.get(user=request.user)
     current_user_request=Requests.objects.filter(user=current_user)
     
-    if cost!=0:
+    if cost!=0 :
         currency = 'INR'
         amount = cost*100
         print(amount)
@@ -160,7 +174,7 @@ def userpastorders(request,cost):
 
         # order id of newly created order.
         razorpay_order_id = razorpay_order['id']
-        callback_url = 'userdash'
+        callback_url = 'book_done'
 
         # we need to pass these details to frontend.
         context = {}
@@ -179,54 +193,7 @@ def userpastorders(request,cost):
 # we need to csrf_exempt this url as
 # POST request will be made by Razorpay
 # and it won't have the csrf token.
-@csrf_exempt
-# def paymenthandler(request):
 
-# 	# only accept POST request.
-# 	if request.method == "POST":
-# 		try:
-		
-# 			# get the required parameters from post request.
-# 			payment_id = request.POST.get('razorpay_payment_id', '')
-# 			razorpay_order_id = request.POST.get('razorpay_order_id', '')
-# 			signature = request.POST.get('razorpay_signature', '')
-# 			params_dict = {
-# 				'razorpay_order_id': razorpay_order_id,
-# 				'razorpay_payment_id': payment_id,
-# 				'razorpay_signature': signature
-# 			}
 
-# 			# verify the payment signature.
-# 			result = razorpay_client.utility.verify_payment_signature(
-# 				params_dict)
-# 			if result is not None:
-# 				amount = 20000 # Rs. 200
-# 				try:
-
-# 					# capture the payemt
-# 					razorpay_client.payment.capture(payment_id, amount)
-
-# 					# render success page on successful caputre of payment
-# 					return render(request, 'website/book_done.html')
-# 				except:
-
-# 					# if there is an error while capturing payment.
-# 					return render(request, 'website/book_done.html')
-# 			else:
-
-# 				# if signature verification fails.
-# 				return render(request, 'website/book_done.html')
-# 		except:
-
-# 			# if we don't find the required parameters in POST data
-# 			return HttpResponseBadRequest()
-# 	else:
-# 	# if other than POST request is made.
-# 		return HttpResponseBadRequest()
-@csrf_exempt
-def book_done(request):
-     if request.method=='POST':
-        print("lala")
-        return render(request,'website/book_done.html')
 
          
